@@ -2,7 +2,7 @@
 https://grafana.com/grafana/download
 
 # 安装
-``` javascript
+``` 
 # mkdir -p /usr/local/grafana
 # cd /usr/local/grafana
 # wget -P /usr/local/grafana https://s3-us-west-2.amazonaws.com/grafana-releases/release/grafana-4.6.1-1.x86_64.rpm
@@ -10,7 +10,7 @@ https://grafana.com/grafana/download
 ```
 
 # 启动
-``` javascript
+``` bash
 # systemctl start grafana-server
 # ps -aux | grep grafana-server
 grafana   6299  0.4  0.5 357596 22988 ?        Ssl  11:16   0:00 /usr/sbin/grafana-server --config=/etc/grafana/grafana.ini --pidfile=/var/run/grafana/grafana-server.pid cfg:default.paths.logs=/var/log/grafana cfg:default.paths.data=/var/lib/grafana cfg:default.paths.plugins=/var/lib/grafana/plugins
