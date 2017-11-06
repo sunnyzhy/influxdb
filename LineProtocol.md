@@ -13,7 +13,7 @@ First, a short primer on the datastore. Data in InfluxDB is organized by “time
 Conceptually you can think of a measurement as an SQL table, where the primary index is always time. tags and fields are effectively columns in the table. tags are indexed, and fields are not. The difference is that, with InfluxDB, you can have millions of measurements, you don’t have to define schemas up-front, and null values aren’t stored.
 
 Points are written to InfluxDB using the Line Protocol, which follows the following format:
-``` bash
+```
 <measurement>[,<tag-key>=<tag-value>...] <field-key>=<field-value>[,<field2-key>=<field2-value>...] [unix-nano-timestamp]
 ```
 The following lines are all examples of points that can be written to InfluxDB:
