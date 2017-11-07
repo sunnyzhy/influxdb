@@ -172,7 +172,7 @@ time                host    region  value
 ----                ----    ------  -----
 1509956976304106075 serverA us_west 0.66
 ```
-    tags 和 timestamp相同时数据会执行覆盖操作，相当于InfluxDB的更新操作。
+    tags 和 timestamp 相同时数据会执行覆盖操作，相当于InfluxDB的更新操作。
 
 # 删除数据
 ```
@@ -184,7 +184,8 @@ time                host    region  value
 # 注意
 ```
 Strings only need to be quoted when they're used as field values. Tag values can only ever be strings, and do not need to be quoted. 
-tags里的字符串不用加引号，fields里的字符串必须加引号
+
+tags里的字符串不用加引号，fields里的字符串必须加引号。
 ```
 - 错误
 ```
