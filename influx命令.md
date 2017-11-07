@@ -1,9 +1,101 @@
 # 启动客户端
+### 默认没有用户名、密码
 ```
 # influx
 Connected to http://localhost:8086 version 1.3.7
 InfluxDB shell version: 1.3.7
 > 
+```
+### 设置用户名、密码
+- 创建admin帐号密码并授权
+```
+> create user admin with password 'admin'
+> grant all privileges to admin
+> exit
+```
+
+- 修改配置文件
+```
+# vim influxdb.conf
+[http]
+   enabled = true
+   bind-address = ":8086"
+   auth-enabled = true
+   realm = "InfluxDB"
+   log-enabled = true
+   write-tracing = false
+   pprof-enabled = true
+   https-enabled = false
+   https-certificate = "/etc/ssl/influxdb.pem"
+
+# systemctl restart influxdb
+```
+- 登录
+```
+# influx
+Connected to http://localhost:8086 version 1.3.7
+InfluxDB shell version: 1.3.7
+> auth
+username: admin
+password: 
+```
+或者
+```
+# influx -username admin -password admin
+```
+
+# 用户管理命令
+### 管理员用户管理
+- 创建一个新的管理员用户
+```
+CREATE USER <username> WITH PASSWORD '<password>' WITH ALL PRIVILEGES
+```
+
+- 为一个已有用户授权管理员权限
+```
+GRANT ALL PRIVILEGES TO <username>
+```
+
+- 取消用户权限
+```
+REVOKE ALL PRIVILEGES FROM <username>
+```
+
+- 展示用户及其权限
+```
+SHOW USERS
+```
+
+### 非管理员用户管理：
+- 创建一个新的普通用户
+```
+CREATE USER <username> WITH PASSWORD '<password>'
+```
+
+- 为一个已有用户授权
+```
+GRANT [READ,WRITE,ALL] ON <database_name> TO <username>
+```
+
+- 取消权限
+```
+REVOKE [READ,WRITE,ALL] ON <database_name> FROM <username>
+```
+
+- 展示用户在不同数据库上的权限
+```
+SHOW GRANTS FOR <user_name>
+```
+
+### 普通用户账号功能管理
+- 重设密码
+```
+SET PASSWORD FOR <username> = '<password>'
+```
+   
+- 删除用户
+```
+DROP USER <username>
 ```
 
 # 显示数据库
