@@ -180,3 +180,26 @@ time                host    region  value
 > select * from cpu
 > 
 ```
+
+# 注意
+```
+Strings only need to be quoted when they're used as field values. Tag values can only ever be strings, and do not need to be quoted. 
+tags里的字符串不用加引号，fields里的字符串必须加引号
+```
+- 错误
+```
+> insert temperature,machine=unit42 type=assembly,external=25,internal=37
+ERR: {"error":"unable to parse 'temperature,machine=unit42 type=assembly,external=25,internal=37': invalid boolean"}
+
+> 
+```
+
+- 正确
+```
+> insert temperature,machine=unit42 type="assembly",external=25,internal=37
+> 
+```
+```
+> insert temperature,machine=unit42,type=assembly external=25,internal=37
+> 
+```
