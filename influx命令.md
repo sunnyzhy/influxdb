@@ -100,7 +100,7 @@ DROP USER <username>
 
 # 显示数据库
 ```
-> show databases;
+> show databases
 name: databases
 name
 ----
@@ -109,8 +109,8 @@ _internal
 
 # 创建数据库
 ```
-> create database mydb;
-> show databases;
+> create database mydb
+> show databases
 name: databases
 name
 ----
@@ -120,8 +120,8 @@ mydb
 
 # 删除数据库
 ```
-> drop database mydb;
-> show databases;
+> drop database mydb
+> show databases
 name: databases
 name
 ----
@@ -130,16 +130,16 @@ _internal
 
 # 显示数据表
 ```
-> use mydb;
+> use mydb
 Using database mydb
-> show measurements;
+> show measurements
 > 
 ```
 
 # 创建数据表
 ```
 > insert cpu,host=serverA,region=us_west value=0.64
-> show measurements;
+> show measurements
 name: measurements
 name
 ----
@@ -148,15 +148,15 @@ cpu
 
 # 删除数据表
 ```
-> drop measurement cpu;
-> show measurements;
+> drop measurement cpu
+> show measurements
 > 
 ```
 
 # 添加数据
 ```
 > insert cpu,host=serverA,region=us_west value=0.64
-> select * from cpu;
+> select * from cpu
 name: cpu
 time                host    region  value
 ----                ----    ------  -----
@@ -166,7 +166,7 @@ time                host    region  value
 # 更新数据
 ```
 > insert cpu,host=serverA,region=us_west value=0.66 1509956976304106075
-> select * from cpu;
+> select * from cpu
 name: cpu
 time                host    region  value
 ----                ----    ------  -----
@@ -176,7 +176,7 @@ time                host    region  value
 
 # 删除数据
 ```
-> delete from cpu where time=1509956976304106075;
-> select * from cpu;
+> delete from cpu where time=1509956976304106075
+> select * from cpu
 > 
 ```
