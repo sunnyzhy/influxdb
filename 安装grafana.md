@@ -23,3 +23,13 @@ root      6365  0.0  0.0 112664   972 pts/0    R+   11:17   0:00 grep --color=au
 
 # 访问grafana
 打开浏览器输入 http://localhost:3000 就可以访问了。用户名和密码默认都是admin。
+
+# 开机启动grafana
+```
+# systemctl enable grafana-server
+```
+
+# 开机不启动grafana
+```
+# systemctl disable grafana-server
+```
