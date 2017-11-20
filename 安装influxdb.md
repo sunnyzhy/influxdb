@@ -20,3 +20,13 @@ https://portal.influxdata.com/downloads
 influxdb  4441  0.1  0.4 274284 15516 ?        Ssl  10:22   0:00 /usr/bin/influxd -config /etc/influxdb/influxdb.conf
 root      4521  0.0  0.0 112664   964 pts/0    R+   10:26   0:00 grep --color=auto influxdb
 ```
+
+# 开机启动influxdb
+```
+# systemctl enable influxdb
+```
+
+# 开机不启动influxdb
+```
+# systemctl disable influxdb
+```
